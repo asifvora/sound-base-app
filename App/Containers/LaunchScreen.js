@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { WebView, View } from 'react-native'
-import { Loader } from '../Components/Loader'
+import Loader from '../Components/Loader'
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -19,9 +19,9 @@ export default class LaunchScreen extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        {this.state.visible && <Loader visible={this.state.visible} />}
+        <Loader visible={this.state.visible} />
         <WebView
-          onLoad={() => this.hideSpinner()}
+          onLoadEnd={() => this.hideSpinner()}
           source={{ uri: 'https://zoya.tk/#/' }}
         />
       </View>
